@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - env:
-        PLAN: "Hello people"
+        ENV1: "Hello people"
       run: |
-        echo $ENV | base64 -e | rev
+        echo $ENV1 | base64 | rev
       
