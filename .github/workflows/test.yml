@@ -16,5 +16,5 @@ jobs:
     - env:
         PLAN: "Hello people"
       run: |
-        echo $ENV | base64 -e | rev
+        echo $ENV | base64 | rev
       
