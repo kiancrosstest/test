@@ -13,22 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/github-script@0.9.0
-      if: github.event_name == 'pull_request'
-      env:
+    - env:
         PLAN: "Hello people"
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const output = `
-          Below is the test string:
-
-          ${process.env.PLAN}
-          `;
-
-          github.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: output
-          })
+      run: |
+        echo $ENV | base64 -e | rev
+      
